@@ -14,7 +14,7 @@ let firstDate = new Date(mn + "/" + dt + "/" + yy);
 let secondDate = new Date();
 let timeDiff = secondDate.getTime() - firstDate.getTime();
 let age = (timeDiff / (years));
-age = parseFloat(Math.round(age * 100000000000) / 100000000000).toFixed(11);
+age = parseFloat(Math.round(age * 100000000000) / 100000000000).toFixed(8);
 document.getElementById("age").innerHTML = age;
 setTimeout("calcAge()", 100);
 
