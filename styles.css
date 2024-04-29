@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100wh;
+    text-align: center;
+  }
+  
+  input {
+    margin-top: 20%;
+  }
+  
+  output {
+    font-size: 50px;
+    font-family: sans-serif;
+  }
