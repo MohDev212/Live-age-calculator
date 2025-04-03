@@ -1,15 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="LiveAge.js"></script>
-    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Calculate your exact age in years, months, days, hours, minutes, and seconds in real-time.">
+    <meta name="theme-color" content="#4361ee">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Live Age Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <input type="date" name="date of birth" id="date1">
-    <br></br>
-    <output id="age">...</output>
+    <main class="calculator-container">
+        <header>
+            <h1><i class="fas fa-hourglass-half"></i> Live Age Calculator</h1>
+            <p class="subtitle">Track your exact age down to the second</p>
+        </header>
+        
+        <section class="input-section">
+            <form id="age-form">
+                <div class="form-group">
+                    <label for="date1">
+                        <i class="fas fa-calendar-alt"></i> Enter your Date of Birth:
+                    </label>
+                    <input type="date" name="date_of_birth" id="date1" required 
+                           aria-describedby="date-instructions">
+                    <small id="date-instructions" class="form-text">Please select your birth date to see your exact age.</small>
+                </div>
+            </form>
+        </section>
+        
+        <section class="result-section">
+            <h2><i class="fas fa-birthday-cake"></i> Your Age Is:</h2>
+            <output id="age" aria-live="polite" class="age-display" data-placeholder="Select your date of birth to see your age calculation."></output>
+        </section>
+        
+        <footer class="calculator-footer">
+            <p>Your age updates in real-time, every second!</p>
+        </footer>
+    </main>
+
+    <script src="LiveAge.js"></script>
 </body>
 </html>

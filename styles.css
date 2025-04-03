@@ -1,15 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #4895ef;
+    --text-color: #333;
+    --text-light: #666;
+    --background-color: #f8f9fa;
+    --card-color: #fff;
+    --border-radius: 12px;
+    --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
 body {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
-    width: 100vw;
-    height: 100wh;
+    padding: 0;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    color: var(--text-color);
+}
+
+.calculator-container {
+    background-color: var(--card-color);
+    padding: 35px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     text-align: center;
-  }
-  
-  input {
-    margin-top: 20%;
-  }
-  
-  output {
-    font-size: 50px;
-    font-family: sans-serif;
-  }
+    max-width: 500px;
+    width: 100%;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 2em;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+h1 i {
+    margin-right: 10px;
+    color: var(--accent-color);
+}
+
+.subtitle {
+    color: var(--text-light);
+    margin-top: 0;
+    font-size: 1em;
+}
+
+h2 {
+    color: var(--text-light);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+h2 i {
+    margin-right: 8px;
+    color: var(--accent-color);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: var(--text-light);
+    font-size: 1.1em;
+}
+
+label i {
+    margin-right: 8px;
+    color: var(--accent-color);
+}
+
+input[type="date"] {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    font-size: 1em;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: var(--transition);
+    -webkit-appearance: none;
+}
+
+input[type="date"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(72, 149, 239, 0.2);
+}
+
+.form-text {
+    display: block;
+    color: #888;
+    font-size: 0.85em;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.age-display {
+    display: block;
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: var(--text-color);
+    line-height: 1.8;
+    min-height: 180px;
+    padding: 20px;
+    background-color: #f8f9ff;
+    border-radius: var(--border-radius);
+    border: 1px solid #e8eaff;
+    transition: var(--transition);
+    text-align: left;
+}
+
+.age-component {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.age-value {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-right: 5px;
+    font-size: 1.1em;
+}
+
+.age-total {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed #e0e0e0;
+    font-weight: 500;
+}
+.age-display[data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: #999;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1em;
+    text-align: center;
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.age-display:not(:empty) {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.calculator-footer {
+    margin-top: 25px;
+    font-size: 0.9em;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+@media (max-width: 580px) {
+    .calculator-container {
+        padding: 25px 20px;
+    }
+    
+    h1 {
+        font-size: 1.6em;
+    }
+    
+    .subtitle {
+        font-size: 0.9em;
+    }
+    
+    .age-display {
+        min-height: 150px;
+        font-size: 1.1em;
+        padding: 15px;
+    }
+    
+    input[type="date"] {
+        padding: 12px;
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 380px) {
+    .calculator-container {
+        padding: 20px 15px;
+    }
+    
+    h1 {
+        font-size: 1.4em;
+    }
+    
+    h2 {
+        font-size: 1.2em;
+    }
+    
+    .age-display {
+        padding: 12px;
+        font-size: 1em;
+    }
+    
+    .age-value {
+        font-size: 1em;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    input[type="date"] {
+        min-height: 44px; /* Minimum touch target size */
+    }
+}
